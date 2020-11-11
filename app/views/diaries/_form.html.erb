@@ -1,0 +1,15 @@
+<%= form_with model: diary, local: true do |f|%>
+  <div class="field">
+    <%= f.label :titel, "日記のタイトル" %><br />
+    <%= f.text_field :titel %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diary_text, "本文" %><br />
+    <%= f.text_area :diary_text, class: :form__text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
