@@ -1,6 +1,8 @@
 class DiariesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_diaries, only: [:index, :show]
   before_action :set_find_diary, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -43,10 +45,16 @@ class DiariesController < ApplicationController
   end
 
   def set_diaries
-    @diaries = Diary.all
+    @diaries = Diary.all.order("created_at DESC")
   end
 
   def set_find_diary
     @diary = Diary.find(params[:id])
+  end
+
+  def correct_user
+    unless user_signed_in? && current_user.id == @diary.user_id
+     redirect_to action: :index
+   end
   end
 end
