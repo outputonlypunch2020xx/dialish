@@ -5,5 +5,4 @@ class UsersController < ApplicationController
     @diaries = user.diaries
     @user = User.find(params[:id])
   end
-
 end

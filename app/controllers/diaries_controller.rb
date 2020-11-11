@@ -9,7 +9,7 @@ class DiariesController < ApplicationController
     @diary = Diary.new
   end
 
-  def create 
+  def create
     if Diary.create(diary_params)
       redirect_to root_path
     else
@@ -36,7 +36,8 @@ class DiariesController < ApplicationController
     @diary.destroy
   end
 
-private
+  private
+
   def diary_params
     params.require(:diary).permit(:titel, :diary_text).merge(user_id: current_user.id)
   end
