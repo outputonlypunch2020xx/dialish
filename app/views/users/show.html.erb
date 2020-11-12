@@ -10,6 +10,11 @@
             <th class="table__col1">名前</th>
             <td class="table__col2"><%= @user.name %></td>
           </tr>
+
+          <tr>
+          <%= pie_chart @user.diaries.group(:titel).count %>
+          </tr>
+
         </tbody>
       </table>
       <h2 class="page-heading">
@@ -21,3 +26,4 @@
     </div>
   </div>
 </div>
+
