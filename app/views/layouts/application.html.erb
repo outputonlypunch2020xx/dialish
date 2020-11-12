@@ -16,25 +16,42 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
-            <h1><%= link_to "Dialish", root_path %></h1>
-          </div>         
+            <div class="hello"><%= link_to "Dialish", root_path %></div>
+            
+          </div> 
            <div class="fa-3x">
+            <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
+            <span style="color: deepskyblue;">
               <i class="fab fa-google fa-spin"></i>
+            </span>
+            <% end %>
+            <%= link_to user_facebook_omniauth_authorize_path, method: :post do %>
+            <span style="color: steelblue;">
               <i class="fab fa-facebook fa-spin"></i>
+              </span>
+              <% end %>
+             <span style="color: darkturquoise;">
               <i class="fas fa-sync fa-spin"></i>
+               </span>
+               <span style="color: deepskyblue;">
               <i class="fab fa-twitter fa-spin"></i>
+              </span>
+               <span style="color: khaki;">
               <i class="fas fa-spinner fa-pulse"></i>
+              </span>
+              <span style="color: Tomato;">
               <i class="fas far fa-arrow-alt-circle-right fa-spin"></i>
+              </span>
             </div>
            <% if user_signed_in? %>
              <div class="nav__right"> 
-               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
-               <%= link_to "New Diary", new_diary_path, method: :get, class: :nav__btn %>
+               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :btn_horizontal_border %>
+               <%= link_to "New Diary", new_diary_path, method: :get, class: :btn_horizontal_border %>
              </div> 
           <%else%>
             <div class="nav__right">
-              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+              <%= link_to "ログイン", new_user_session_path, class: :btn_horizontal_border %>
+              <%= link_to "新規登録", new_user_registration_path, class: :btn_horizontal_border %>
             </div>   
             <%end%>     
         </div>

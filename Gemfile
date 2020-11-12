@@ -59,3 +59,7 @@ gem "chartkick"
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'groupdate'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
