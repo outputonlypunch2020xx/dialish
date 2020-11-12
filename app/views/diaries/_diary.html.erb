@@ -6,4 +6,18 @@
     </p>
     <%= link_to "by #{diary.user.name}", "/users/#{diary.user.id}", class: :card__user %>
   </div>
-</div>
+  <div>
+    <% if current_user.already_favorited?(diary) %>
+        <%= link_to diary_favorites_path(diary), method: :delete do %>
+        <i class="fas fa-heart"></i>
+        <% end %>
+            <%= diary.favorites.count %>
+              <% else %>
+              <%= link_to diary_favorites_path(diary), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+            <%= diary.favorites.count %>
+      <% end %>    
+      </div>
+</div> 
+ 
