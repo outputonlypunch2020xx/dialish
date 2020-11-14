@@ -5,9 +5,14 @@
   </div>
 
  <div class="field">
-    <%= f.label :diary_text, "本文" %><br />
-   <%= f.text_area :diary_text, class: :form__text %>
+    <%= f.label :content, "本文" %><br />
+   <%= f.rich_text_area :content %>
 </div> 
+
+<div class="field">
+    <%= f.label :diary_text, "あとがき" %><br />
+    <%= f.text_field :diary_text %>
+  </div>
 
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>

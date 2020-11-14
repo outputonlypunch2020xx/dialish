@@ -12,11 +12,26 @@ class DiariesController < ApplicationController
   end
 
   def create
-    if Diary.create(diary_params)
-      redirect_to root_path
-    else
-      render :new
+    # if Diary.create(diary_params)
+    #   redirect_to root_path
+    # else
+    #   render :new
+    # end
+
+    @diary = Diary.new(diary_params)
+
+    respond_to do |format|
+      if @diary.save
+        format.html { redirect_to @diary, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @diary }
+      else
+        format.html { render :new }
+        format.json { render json: @diary.errors, status: :unprocessable_entity }
+      end
     end
+
+
+
   end
 
   def show
@@ -32,16 +47,30 @@ class DiariesController < ApplicationController
     else
       render :edit
     end
+
+    respond_to do |format|
+      if @diary.update(diary_params)
+        format.html { redirect_to @diary, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @diary }
+      else
+        format.html { render :edit }
+        format.json { render json: @diary.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @diary.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
 
   def diary_params
-    params.require(:diary).permit(:titel, :diary_text).merge(user_id: current_user.id)
+    params.require(:diary).permit(:titel, :diary_text, :content).merge(user_id: current_user.id)
   end
 
   def set_diaries
