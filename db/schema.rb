@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_150922) do
+ActiveRecord::Schema.define(version: 2020_11_13_033846) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_150922) do
   end
 
   create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "diary_text", null: false
+    t.text "diary_text"
     t.string "titel", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -69,12 +69,6 @@ ActiveRecord::Schema.define(version: 2020_11_12_150922) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["diary_id"], name: "index_favorites_on_diary_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

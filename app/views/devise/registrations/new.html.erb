@@ -9,38 +9,22 @@
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-
+        <%if @sns_id.present? %>
+          <%= hidden_field_tag :sns_auth, true %>
+        <% else %>
+          <div class="field">
+                  <%= f.label :password, "パスワード（6文字以上）" %><br />
+                  <%= f.password_field :password, autocomplete: "new-password" %>
+                </div>
+          <div class="field">
+                  <%= f.label :password, "パスワード再入力" %><br />
+                  <%= f.password_field :password, autocomplete: "new-password" %>
+                </div>
+        <% end %>
         <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password, "パスワード再入力" %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :name, "ユーザー名" %><br />
-          <%= f.text_field :name %>
-        </div>
-
-<%if @sns_id.present? %>
-   <%= hidden_field_tag :sns_auth, true %>
- <% else %>
-   <div class="field">
-     <%= f.label :password %>
-     <% @minimum_password_length %>
-     <em>(<%= @minimum_password_length %> characters minimum)</em>
-     <br />
-     <%= f.password_field :password, autocomplete: "new-password" %>
-   </div>
-
-   <div class="field">
-     <%= f.label :password_confirmation %><br />
-     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-   </div>
- <% end %>
+                  <%= f.label :name, "ユーザー名" %><br />
+                  <%= f.text_field :name %>
+                </div>
         <div class="actions">
           <%= f.submit "新規登録", class: :form__btn  %>
         </div>
