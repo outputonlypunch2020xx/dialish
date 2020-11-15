@@ -12,12 +12,6 @@ class DiariesController < ApplicationController
   end
 
   def create
-    # if Diary.create(diary_params)
-    #   redirect_to root_path
-    # else
-    #   render :new
-    # end
-
     @diary = Diary.new(diary_params)
 
     respond_to do |format|
