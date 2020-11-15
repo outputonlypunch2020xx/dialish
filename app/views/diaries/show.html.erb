@@ -12,7 +12,6 @@
         </div>
       <% end %>
       <div class="prototype__image">
-        <%# <%= image_tag "日記の画像" %>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
@@ -21,12 +20,12 @@
             <%= @diary.content %>
           </p>
         </div>
-        <div class="prototype__detail">
+        <%# <div class="prototype__detail">
           <p class="detail__title">あとがき</p>
           <p class="detail__message">
             <%= @diary.diary_text %>
-          </p>
-        </div>
+          <%# </p>
+        </div> %> 
       </div>
       <div class="prototype__comments">
         <% if current_user %>
