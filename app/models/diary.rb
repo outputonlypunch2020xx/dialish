@@ -5,5 +5,5 @@ class Diary < ApplicationRecord
   has_rich_text :content
 
   validates :titel, presence: true
-  validates :diary_text, presence: true
+  # validates :diary_text, presence: true
 end
