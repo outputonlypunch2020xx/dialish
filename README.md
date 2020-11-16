@@ -21,8 +21,14 @@ Dialishで英語日記を投稿して日常に英語を取り込もう！
 https://dialish.herokuapp.com
 
 # DEMO
-
-GIF載せる
+日記投稿機能
+https://gyazo.com/1c7f42be846959c44b23d8f9a56e7708
+いいね機能
+https://gyazo.com/00504964ecd30346c459a17bd61e77f2
+日記の閲覧とコメント機能
+https://gyazo.com/1340bf2f3d0a47a76bfa86543f982d9c
+ユーザー詳細とグラフ機能
+https://gyazo.com/bc9f319d92eef697f7a06d3911e53390
 
 # Requirement
 
